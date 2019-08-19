@@ -1,0 +1,34 @@
+package com.cybertek.utilities;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class BrowserFactory {
+
+    //its a methoid that returns object of webdriver
+    //it can be firefox or chrome driver based on the value of the parameter
+
+    public static WebDriver getDriver (String browser){
+
+            if (browser.equals("chrome")) {
+                WebDriverManager.chromedriver().setup();
+                return new ChromeDriver();
+
+            } else if (browser.equals("firefox")) {
+                WebDriverManager.firefoxdriver().setup();
+                return new FirefoxDriver();
+
+
+            } else {
+                throw new IllegalArgumentException("Wrong browser name!");
+
+            }
+
+        }
+        }
+
+
+
+
